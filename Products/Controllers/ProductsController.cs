@@ -20,10 +20,10 @@ namespace Products.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Product>>> GetProducts()
         {
-          if (_context.Products == null)
-          {
-              return NotFound(new { message = "Not Found" });
-          }
+            if (_context.Products == null)
+            {
+                return NotFound(new { message = "Not Found" });
+            }
             return await _context.Products.ToListAsync();
         }
 
@@ -31,10 +31,10 @@ namespace Products.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Product>> GetProduct(int id)
         {
-          if (_context.Products == null)
-          {
-              return NotFound(new { message = "Not Found" });
-          }
+            if (_context.Products == null)
+            {
+                return NotFound(new { message = "Not Found" });
+            }
             var product = await _context.Products.FindAsync(id);
 
             if (product == null)
@@ -81,16 +81,16 @@ namespace Products.Controllers
         [HttpPost]
         public async Task<ActionResult<Product>> PostProduct(Product product)
         {
-          if (_context.Products == null)
-          {
-              return Problem("Entity set 'ProductsContext.Products'  is null.");
-          }
+            if (_context.Products == null)
+            {
+                return Problem("Entity set 'ProductsContext.Products'  is null.");
+            }
             _context.Products.Add(product);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetProduct", new { id = product.Id }, product);
         }
-
+        
         // PATCH: api/Products/5
         [HttpPatch("{id}")]
         public async Task<ActionResult<Product>> PatchProduct(int id, Product product)
