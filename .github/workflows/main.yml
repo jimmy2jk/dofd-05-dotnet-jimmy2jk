@@ -1,7 +1,11 @@
 name: CI Tasks
 on:
   push:
-  workflow_dispatch:
+    branches:
+      - main
+  pull_request:
+    types: [opened, synchronize]
+  workflow_dispatch: 
 
 jobs:
   my_first_job:
