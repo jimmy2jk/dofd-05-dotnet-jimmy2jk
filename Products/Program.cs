@@ -19,7 +19,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseCors(opt1 => opt1
+app.UseCors(opt => opt
     .AllowAnyOrigin()
     .AllowAnyHeader()
     .AllowAnyMethod()
